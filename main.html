@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <title>Formularz startowy - Półmaraton Wiosenny 2019</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body class="bg-secondary">
+
+  <main class="container">
+
+    <form id="regForm" action="">
+
+      <h2 class="text-secondary">Rejestracja - Półmaraton Wiosenny 2019</h2>
+
+      <!-- One "tab" for each step in the form: -->
+      <div id="nameTab" class="tab">
+        <p>
+          <label for="firstNameInput" class="col-form-label text-secondary">Imię*</label>
+          <input id="nameInput" placeholder="Wpisz swoje imię" oninput="this.className = ''">
+          <small id="firstNameInputValidation" class="text-danger validation">Podaj swoje imię!</small>
+        </p>
+
+        <p>
+          <label for="lastNameInput" class="col-form-label text-secondary">Nazwisko*</label>
+          <input id="lastNameInput" placeholder="Wpisz swoje nazwisko" oninput="this.className = ''">
+          <small id="lastNameInputValidation" class="text-danger validation">Podaj swoje nazwisko!</small>
+        </p>
+      </div>
+
+      <div id="contactInfoTab" class="tab">
+        <p>
+          <label for="emailInput" class="col-form-label text-secondary">Adres e-mail*</label>
+          <input id="emailInput" placeholder="Wpisz swój adres e-mail" oninput="this.className = ''">
+          <small id="emailInfo" class="text-secondary">Przykład: jan.kowalski@gmail.com</small>
+          <br>
+          <small id="emailInputValidation" class="text-danger validation">Podaj poprawny adres e-mail!</small>
+        </p>
+
+        <p>
+          <label for="phoneInput" class="col-form-label text-secondary">Numer telefonu*</label>
+          <input id="phoneInput" placeholder="Wpisz swój numer telefonu" oninput="this.className = ''">
+          <small id="phoneInfo" class="text-secondary">Przykład: 123-123-123</small>
+          <br>
+          <small id="phoneInputValidation" class="text-danger validation">Podaj poprawny numer telefonu!</small>
+        </p>
+      </div>
+
+      <div id="personalInfoTab" class="tab">
+        <p>
+          <label for="dateOfBirthInput" class="col-form-label text-secondary">Data urodzenia*</label>
+          <input id="dateOfBirthInput" placeholder="Wpisz swoją datę urodzenia" oninput="this.className = ''">
+          <small id="dateOfBirthInfo" class="text-secondary">Przykład: 01.01.1990</small>
+          <br>
+          <small id="dateOfBirthInputValidation" class="text-danger validation">Podaj poprawną datę urodzenia!</small>
+        </p>
+
+        <p>
+          <label for="genderInput" class="col-form-label text-secondary">Płeć*</label>
+          <select id="genderInput" form="regForm" class="custom-select" onchange="this.className = 'custom-select'">
+            <option disabled selected value="asdasd">Wybierz swoją płeć</option>
+            <option value="Female">Kobieta</option>
+            <option value="Male">Mężczyzna</option>
+          </select>
+          <br>
+          <small id="genderInputValidation" class="text-danger validation">Wybierz płeć z listy!</small>
+        </p>
+      </div>
+
+      <div id="timeTab" class="tab">
+        <p>
+          <label class="col-form-label text-secondary">Przewidywany czas ukończenia biegu*</label>
+          <br>
+          <br>
+          <input id="timeRadio" type="radio" name="time" value="1" oninput="this.className = ''">
+          <small class="text-secondary">Poniżej 01:15:00</small>
+          <br>
+          <br>
+          <input type="radio" name="time" value="2" oninput="this.className = ''">
+          <small class="text-secondary">od 01:15:00 do 01:30:00</small>
+          <br>
+          <br>
+          <input type="radio" name="time" value="3" oninput="this.className = ''">
+          <small class="text-secondary">od 01:30:00 do 01:45:00</small>
+          <br>
+          <br>
+          <input type="radio" name="time" value="4" oninput="this.className = ''">
+          <small class="text-secondary">od 01:45:00 do 2:00:00</small>
+          <br>
+          <br>
+          <input type="radio" name="time" value="5" oninput="this.className = ''">
+          <small class="text-secondary">Powyżej 2:00:00</small>
+          <br>
+          <br>
+          <small id="timeValidation" class="text-danger validation">Wybierz przewidywany czas!</small>
+        </p>
+      </div>
+
+      <div id="clubTab" class="tab">
+        <p>
+          <label for="clubInput" class="col-form-label text-secondary">Nazwa klubu</label>
+          <input id="clubInput" placeholder="Wpisz nazwę swojego klubu" oninput="this.className = ''">
+          <small id="clubInfo" class="text-secondary">Informacja o wynikach klubu zostanie umieszczona w klasyfikacji
+            grupowej</small>
+        </p>
+      </div>
+
+      <div style="overflow:auto;">
+        <div style="float:right;">
+          <button class="btn btn-secondary" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+          <button class="btn btn-secondary" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+        </div>
+      </div>
+
+      <div style="overflow:auto;">
+        <div>
+          <small class="text-secondary">* - pole wymagane</small>
+        </div>
+      </div>
+
+      <!-- Circles which indicates the steps of the form: -->
+      <div style="text-align:center;margin-top:40px;">
+        <span class="step"></span>
+        <span class="step"></span>
+        <span class="step"></span>
+        <span class="step"></span>
+        <span class="step"></span>
+      </div>
+
+    </form>
+    
+  </main>
+
+</body>
+
+<!-- Scripts -->
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+
+</html>
